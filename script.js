@@ -31,10 +31,16 @@ $(document).ready(function(e) {
 
         // Password validation 
         var password = $("#password").val();
-        alert(password + " " + !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,27}$/.test(password))
         if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,27}$/.test(password)) {              
             $.toast({heading: 'Warning', icon: 'warning', hideAfter: 4000, text: "Please enter a valid 8-27 password with at least one special, uppercase, and lowercase character."});
             error=true;
+        }
+
+        // address validation
+        var address = $("#address").val(); 
+        if (!address) { 
+            $.toast({heading: 'Warning', icon: 'warning', hideAfter: 4000, text: "Please enter a address."});
+            error=true;   
         }
 
         // Pronoun validation
